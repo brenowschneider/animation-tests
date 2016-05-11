@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Sprite Animation Tests</title>
+        <script src="assets/js/animation.js"></script>
+        <script src="assets/js/ball.js"></script>
+    </head>
+    <body>
+        <canvas id="animation_canvas" width="400" height="800"></canvas>    
+        
+        <script>
+            var canvas = document.getElementById('animation_canvas');
+            var context = canvas.getContext('2d');
+            
+            var ball = new Ball(context);
+            ball.x = 100;
+            ball.y = 200;
+            ball.xSpeed = 15;
+            ball.ySpeed = -10;
+            ball.color = 'blue';
+            ball.radius = 10;
+            
+            var bigBall = new Ball(context);
+            bigBall.x = 100;
+            bigBall.y = 200;
+            bigBall.xSpeed = 8;
+            bigBall.ySpeed = -4;
+            bigBall.color = 'black';
+            bigBall.radius = 30;
+            
+            
+            //Animation loop
+            var animation = new Animation(context);
+            
+            animation.newSprite(ball);
+            animation.newSprite(bigBall);
+            animation.run();
+            
+            
+            
+        </script>
+        
+        
+    </body>
+    
+    
+
+</html>

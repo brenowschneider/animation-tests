@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<title>Processing HTML5 Canvas</title>
+	</head>
+	
+	<body>
+		<canvas id="snake_canvas" width="300" height="300"></canvas>
+		<script>
+			var canvas = document.getElementById('snake_canvas');
+			var context = canvas.getContext('2d');
+            
+            var conversor = Math.PI/180;
+            
+			
+			/*
+            
+            //RECTANGLE
+            
+            //Blue rectangle 
+            context.fillStyle='blue';
+            context.fillRect(50,50,100,100);
+            
+            //black outline
+            context.lineWidth=2;
+            context.strokeStyle='black'
+            context.strokeRect(50,50,100,100);
+            */
+            
+            //CIRCLE
+            /*
+            context.fillStyle='gray';
+            context.strokeStyle='black';
+            context.lineWidth=2;
+            
+            context.beginPath();
+            context.arc(50,50,40, 0*conversor, 180*conversor, false);
+            
+            context.fill();
+            context.stroke();
+            */
+            
+            
+            /*
+            
+            //Images side by syde
+            
+            var img = new Image();
+            img.src ='assets/img/JavaScriptLogo.png';
+            img.alt = 'teste';
+            //img.style.width='80%';
+            //img.style.height='auto';
+            
+            img.onload = function() {
+                var x = 20;
+                
+                for (var i=0 ; i<5; i++){
+                    context.drawImage(img,x,20,90,50);
+                    x += 95;
+                }
+            }
+            
+            */
+            
+            /*
+            //Image Clipping
+            var img = new Image();
+            img.src = 'assets/img/explosion_mini.jpg';
+            img.onload = function() 
+            {
+                context.drawImage(
+                    img,
+                    35, 35, 130, 130, 
+                    5, 5, 80, 80
+                    
+                );
+            }
+            */
+            
+            /*
+            //Context save and restore
+            
+            context.fillStyle='green';
+            context.fillRect(50,50,25,25);
+            
+            context.save();
+            
+            context.fillStyle='purple';
+            context.fillRect(100,50,25,25);
+            
+            context.restore();
+            
+            
+            context.fillRect(150,50,25,25);
+            */
+            
+            /**/
+            //ANIMATION (ball animation)
+            
+            //Ball info
+            var x = 20;
+            var y = 20;
+            var radius = 8;
+            
+            
+            var before = new Date().getTime();
+            
+            //Initiate animation
+            requestAnimationFrame(moveBall);
+            
+            function moveBall() {
+                
+                var now = new Date().getTime();
+                
+                context.clearRect(0,0, canvas.width, canvas.height);
+                
+                //draw ball
+                context.beginPath();
+                context.arc(x, y, radius,0, Math.PI*2);
+                context.fillStyle('red');
+                contex.fill()
+                
+                past = now - before;
+                
+                var speed = 800;
+                x += speed * past/1000
+                
+                before = now;
+                
+                if(x>canvas.width){
+                    x = 20;
+                    y += 50;
+                    
+                    if(y >= canvas.height) {
+                        y = 20;
+                    }
+                    
+                }
+                
+                requestAnimationFrame(moveBall);
+                
+            }
+            
+            document.write('Speed = ' + speed);
+            
+            
+            //Ball Animation (Object Oriented) and acceleration
+            
+            //Ball Object
+            function car (color, radius){
+                this.color = color;
+                this.radius = radius;
+                this.currentSpeed = 0;
+                
+                this.accelerate = function(){
+                    this.currentSpeed += 10;
+                }
+            }
+            
+            
+		</script>
+	</body>
+
+</html>
