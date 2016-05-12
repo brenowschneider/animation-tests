@@ -14,45 +14,18 @@
             var context = canvas.getContext('2d');
             
             var keyboard = new Keyboard(document);
-            var animation - new Animation(context);
+            var animation = new Animation(context);
             
-            var shooter = new shooter (context, keyboard);
-            shooter.x = 0;
-            shooter.y = 100;
+            var shooter = new Shooter (context, keyboard, animation);
+            shooter.x = 50;
+            shooter.y = 300;
             animation.newSprite(shooter);
             
-            keyboard.shot(SPACE, function() {
+            keyboard.shot(SPACE_BAR, function() {
                 shooter.shoot();
             });
             
             animation.run();
-            
-            
-            /*
-            var position = 0;
-            drawObject();
-            
-            document.addEventListener('keydown', function(event) {
-                if (event.keyCode === 37) {
-                    //left arrow
-                    position -= 10;
-                    drawObject();
-                }
-                else if (event.keyCode === 39) {
-                    //right arrow
-                    position += 10;
-                    drawObject();
-                }
-                
-            });
-            
-            function drawObject(){
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                context.fillRect(position, 100, 20, 50);
-            }
-            */
-            
-            
             
         </script>
         

@@ -1,4 +1,3 @@
-
 function Ball(context) {
     'use strict';
     this.context = context;
@@ -26,9 +25,6 @@ Ball.prototype = {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
     },
-    
-    
-    
     
     draw: function () {
         'use strict';

@@ -1,7 +1,14 @@
 //keyboard codes
-var LEFT_ARROW = 37;
-var RIGHT_ARROW = 39;
-var SPACE_BAR = 32;
+var LEFT_ARROW = 65; //37
+var RIGHT_ARROW = 68; //39
+var SPACE_BAR = 87; //32
+
+/*
+w = 87
+a = 65
+d = 68
+
+*/
 
 function Keyboard(element) {
     'use strict';
@@ -12,16 +19,16 @@ function Keyboard(element) {
     
     this.shots = [];
     
-    this.shotFunction = [];
+    this.shotFunctions = [];
     
     var keyboard = this;
     element.addEventListener('keydown', function (event) {
         keyboard.pressedKeys[event.keyCode] = true;
         
         //This method should be triggered on the first keydown only
-        if (keyboard.shotFunction[event.keyCode] && !keyboard.shots[event.keyCode]) {
+        if (keyboard.shotFunctions[event.keyCode] && !keyboard.shots[event.keyCode]) {
             keyboard.shots[event.keyCode] = true;
-            keyboard.shotFunction[event.keyCode]();
+            keyboard.shotFunctions[event.keyCode]();
         }
         
     });
@@ -38,11 +45,11 @@ function Keyboard(element) {
 Keyboard.prototype = {
     pressed: function (key) {
         'use strict';
-        return this.pressed[key];
+        return this.pressedKeys[key];
     },
     
-    shoot: function (key, callback) {
+    shot: function (key, callback) {
         'use strict';
-        this.shotFunction[key] = callback;
+        this.shotFunctions[key] = callback;
     }
 };
