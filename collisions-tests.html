@@ -1,0 +1,59 @@
+<head>
+    <title>Collisions Tests</title>
+    <script src="assets/js/ball.js"></script>
+    <script src="assets/js/collider.js"></script>
+</head>
+
+<body>
+    <canvas id="collision_canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById('collision_canvas');
+        var context = canvas.getContext('2d');
+
+        var blueBall = new Ball(context);
+        blueBall.x = 100;
+        blueBall.y = 200;
+        blueBall.xSpeed = 10;
+        blueBall.ySpeed = -10;
+        blueBall.color = 'blue';
+        blueBall.radius = 20;
+
+        var blackBall = new Ball(context);
+        blackBall.x = 200;
+        blackBall.y = 100;
+        blackBall.xSpeed = 12;
+        blackBall.ySpeed = -12;
+        blackBall.color = 'black';
+        blackBall.radius = 20;
+        
+        var collider = new Collider();
+        collider.newSprite(blueBall);
+        collider.newSprite(blackBall);
+        
+        
+        requestAnimationFrame(animate);
+        
+        function animate() {
+            //clear screen
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            //Refresh sprites
+            blueBall.refresh();
+            blackBall.refresh();
+            
+            //Draws
+            blueBall.draw();
+            blackBall.draw();
+            
+            collider.run();
+            
+            requestAnimationFrame(animate);
+            
+        }
+        
+        
+        
+        
+    </script>
+
+</body>
