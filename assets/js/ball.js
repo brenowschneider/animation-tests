@@ -57,7 +57,19 @@ Ball.prototype = {
     
     collidedWith: function (sprite) {
         'use strict';
-        alert('collision!');
+        if (this.x < sprite.x) { //left
+            this.xSpeed = -Math.abs(this.xSpeed);
+        } else { //right
+            this.xSpeed = Math.abs(this.xSpeed);
+        }
+        
+        if (this.y < sprite.y) { //above
+            this.ySpeed = -Math.abs(this.ySpeed);
+        } else { //below
+            this.ySpeed = Math.abs(this.ySpeed);
+        }
+        
+        //alert('collision!');
         
     }
 };

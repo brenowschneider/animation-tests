@@ -15,7 +15,7 @@ Collider.prototype = {
         var i, j;
                 
         for (i = 0; i < this.sprites.length; i++) {
-            for (j = 0; j < this.sprites.length; j++) {
+            for (j = i + 1; j < this.sprites.length; j++) {
                 //A sprite can not collide with itself
                 if (i !== j) {
                     this.testCollision(this.sprites[i], this.sprites[j]);
@@ -52,5 +52,10 @@ collisions:
             ret1.x < (ret2.x + ret2.width) &&
             (ret1.y + ret1.height) > ret2.y &&
             ret1.y < (ret2.y + ret2.height);
+    },
+    
+    collision: function (sprite1, sprite2) {
+        'use strict';
+        //alert("collision");
     }
 };
