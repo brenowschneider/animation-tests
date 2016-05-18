@@ -13,8 +13,8 @@
         var blueBall = new Ball(context);
         blueBall.x = 100;
         blueBall.y = 200;
-        blueBall.xSpeed = 10;
-        blueBall.ySpeed = -10;
+        blueBall.xSpeed = 15;
+        blueBall.ySpeed = -15;
         blueBall.color = 'blue';
         blueBall.radius = 10;
 
@@ -26,10 +26,27 @@
         blackBall.color = 'black';
         blackBall.radius = 30;
         
+        var yellowBall = new Ball(context);
+        yellowBall.x = 80;
+        yellowBall.y = 150;
+        yellowBall.xSpeed = 10;
+        yellowBall.ySpeed = -10;
+        yellowBall.color = 'yellow';
+        yellowBall.radius = 15;
+        
+        var greenBall = new Ball(context);
+        greenBall.x = 400;
+        greenBall.y = 100;
+        greenBall.xSpeed = 3;
+        greenBall.ySpeed = -3;
+        greenBall.color = 'green';
+        greenBall.radius = 50;
+        
         var collider = new Collider();
         collider.newSprite(blueBall);
         collider.newSprite(blackBall);
-        
+        collider.newSprite(greenBall);
+        collider.newSprite(yellowBall);
         
         requestAnimationFrame(animate);
         
@@ -40,10 +57,14 @@
             //Refresh sprites
             blueBall.refresh();
             blackBall.refresh();
+            yellowBall.refresh();
+            greenBall.refresh();
             
             //Draws
             blueBall.draw();
             blackBall.draw();
+            yellowBall.draw();
+            greenBall.draw();
             
             collider.run();
             
