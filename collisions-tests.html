@@ -26,13 +26,13 @@
         blackBall.color = 'black';
         blackBall.radius = 30;
         
-        var yellowBall = new Ball(context);
-        yellowBall.x = 80;
-        yellowBall.y = 150;
-        yellowBall.xSpeed = 10;
-        yellowBall.ySpeed = -10;
-        yellowBall.color = 'yellow';
-        yellowBall.radius = 15;
+        var redBall = new Ball(context);
+        redBall.x = 80;
+        redBall.y = 150;
+        redBall.xSpeed = 10;
+        redBall.ySpeed = -10;
+        redBall.color = 'red';
+        redBall.radius = 15;
         
         var greenBall = new Ball(context);
         greenBall.x = 400;
@@ -57,13 +57,13 @@
             //Refresh sprites
             blueBall.refresh();
             blackBall.refresh();
-            yellowBall.refresh();
+            redBall.refresh();
             greenBall.refresh();
             
             //Draws
             blueBall.draw();
             blackBall.draw();
-            yellowBall.draw();
+            redBall.draw();
             greenBall.draw();
             
             collider.run();
